@@ -70,7 +70,7 @@ func main() {
 				return c.Status(200).JSON(todos[i])
 			}
 		}
-		return c.Status(404).JSON(fiber.Map{"Error": "Todo not found"})
+		return c.Status(404).JSON(fiber.Map{"Error": "news not found"})
 	})
 
 	//Dekete a Todo
@@ -82,12 +82,12 @@ func main() {
 			// Only update fields if they are present in the request
 			if fmt.Sprint(todo.ID) == id {
 				todos = append(todos[:i], todos[i+1:]...)
-				return c.Status(200).JSON(fiber.Map{"data": todos, "message": "todo deleted"})
+				return c.Status(200).JSON(fiber.Map{"data": todos, "message": "news deleted"})
 
 			}
 
 		}
-		return c.Status(404).JSON(fiber.Map{"Error": "Todo not found"})
+		return c.Status(404).JSON(fiber.Map{"Error": "news not found"})
 	})
 
 	log.Fatal(app.Listen(":" + PORT))
